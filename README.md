@@ -14,20 +14,31 @@ The purpose of this election audit is to report the total number of votes casts,
 1. Calculate the total number of votes cast. 
     - Before I could caluclate the total number of votes cast, I needed to initalize a total vote counter. 
     - Code:
+
     total_votes = 0
 
 2. Get a complete list of candidates who received votes. 
     - Once I opened the file I needed to load as election data, I needed to create a for loop that would add to the total vote count and get the candidates name from each row. However, I wanted to make sure that it was only collecting the candidates names once, and then adding to the total count when it appeared again. Therefore, I had to create and if statement inside my for loop. This allowed me to add the candidates name to the list if it wasn't there already, and then start tracking that candidate's vote count.
     - Code: 
+
     with open(file_to_load) as election_data:
+    
         reader = csv.reader(election_data)
+    
         header = next(reader)
+    
         for row in reader:
+    
             total_votes = total_votes + 1
+    
             candidate_name = row[2]
+    
             if candidate_name not in candidate_options:
+    
             candidate_options.append(candidate_name)
+    
             candidate_votes[candidate_name] = 0
+    
         candidate_votes[candidate_name] += 1
         
 3. Calculate the total number of votes each candidate received. 
@@ -49,7 +60,7 @@ The purpose of this election audit is to report the total number of votes casts,
         votes = candidate_votes.get[candidate_name]
         vote_percentage = float(votes) / float(total_votes) * 100
         print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
-        
+
 5. Determine the winner of the election based on popular vote. 
     - Lastly, to determine the winning candidate, vote count, and percentage, I needed to use a decision statement to compare the number of votes each candidate recieved. 
     - To do this, I first needed to declare three variables: winning candidate, winning count, and winning percentage. 
