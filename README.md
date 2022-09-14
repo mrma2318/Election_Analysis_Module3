@@ -21,9 +21,7 @@ The purpose of this election audit is to report the total number of votes casts,
     - Once I opened the file I needed to load as election data, I needed to create a for loop that would add to the total vote count and get the candidates name from each row. However, I wanted to make sure that it was only collecting the candidates names once, and then adding to the total count when it appeared again. Therefore, I had to create and if statement inside my for loop. This allowed me to add the candidates name to the list if it wasn't there already, and then start tracking that candidate's vote count.
     - Code: 
 
-
         with open(file_to_load) as election_data:
-    
             reader = csv.reader(election_data)
     
             header = next(reader)
@@ -94,7 +92,7 @@ The purpose of this election audit is to report the total number of votes casts,
 
         if (votes > winning_count) and (vote_percentage > winning_percentage):
     
-             winning_count = votes
+            winning_count = votes
     
             winning_percentage = vote_percentage
     
@@ -202,9 +200,7 @@ In addition election audit to report the total number of votes casts, total numb
 
 Please referr to [PyPoll_Challenge.py](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/PyPoll_Challenge.py) for completed and combined code analysis of the election data for both the candidate and county. 
 
-Once the script had been completed and the analysis was successful, I printed the election results to it's own text file, [election_analysis.txt](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/analysis/election_analysis.txt).
-
-### Challenges and Difficulties
+Once the script had been completed and the analysis was successful, I printed the election results to it's own text file, [election_analysis.txt](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/analysis/election_analysis.txt). 
 
 ## Analysis Summary
 The analysis of the election show that: 
@@ -226,6 +222,7 @@ The analysis of the election show that:
 - The winner of the election was: 
     - Diana DeGette, who recieved 73.8% of the vote and 272,892 number of votes. 
   
-## Challenge Overview
+## Overview
+To conclude, there were three candidate's in this specific precinct, Charles Casper Stockham, Diana DeGette, and Raymond Anthony Doane. In total, there were 369,711 total votes in this precinct, with Diana recieving 272,892 of those votes, or 73.8% of the total votes.
   
 ## Challenge Summary
