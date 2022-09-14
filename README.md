@@ -15,66 +15,66 @@ The purpose of this election audit is to report the total number of votes casts,
     - Before I could caluclate the total number of votes cast, I needed to initalize a total vote counter. 
     - Code:
 
-    total_votes = 0
+        total_votes = 0
 
 2. Get a complete list of candidates who received votes. 
     - Once I opened the file I needed to load as election data, I needed to create a for loop that would add to the total vote count and get the candidates name from each row. However, I wanted to make sure that it was only collecting the candidates names once, and then adding to the total count when it appeared again. Therefore, I had to create and if statement inside my for loop. This allowed me to add the candidates name to the list if it wasn't there already, and then start tracking that candidate's vote count.
     - Code: 
 
 
-    with open(file_to_load) as election_data:
+        with open(file_to_load) as election_data:
     
-        reader = csv.reader(election_data)
+            reader = csv.reader(election_data)
     
-        header = next(reader)
+            header = next(reader)
     
-        for row in reader:
+            for row in reader:
     
-            total_votes = total_votes + 1
+                total_votes = total_votes + 1
     
-            candidate_name = row[2]
+                candidate_name = row[2]
     
-            if candidate_name not in candidate_options:
+                if candidate_name not in candidate_options:
     
-            candidate_options.append(candidate_name)
+                candidate_options.append(candidate_name)
     
-            candidate_votes[candidate_name] = 0
+                candidate_votes[candidate_name] = 0
     
-        candidate_votes[candidate_name] += 1
+            candidate_votes[candidate_name] += 1
         
 3. Calculate the total number of votes each candidate received. 
     - After I completed the code for getting a list of candidates who received votes, and how many votes each candidate had, I needed to print the total number of votes for each candidate. 
     - Code: 
 
 
-    election_results = (
+        election_results = (
     
-        f"\nElection Results\n"
+            f"\nElection Results\n"
     
-        f"-------------------------\n"
+            f"-------------------------\n"
     
-        f"Total Votes: {total_votes:,}\n"
+            f"Total Votes: {total_votes:,}\n"
     
-        f"-------------------------\n\n"
+            f"-------------------------\n\n"
     
-        f"County Votes:\n")
+            f"County Votes:\n")
     
-    print(election_results, end="")
+        print(election_results, end="")
     
-    txt_file.write(election_results)
+        txt_file.write(election_results)
 
 4. Calculate the percentage of votes each candidate won. 
     - To get the total percent of votes each candidate won, I needed to divide the candidate's vote count by the total vote count, then multiple by 100. 
     - Code: 
 
 
-    for candidate_name in candidate_votes:
+        for candidate_name in candidate_votes:
     
-        votes = candidate_votes.get[candidate_name]
+            votes = candidate_votes.get[candidate_name]
     
-        vote_percentage = float(votes) / float(total_votes) * 100
+            vote_percentage = float(votes) / float(total_votes) * 100
     
-        print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+            print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
 
 5. Determine the winner of the election based on popular vote. 
     - Lastly, to determine the winning candidate, vote count, and percentage, I needed to use a decision statement to compare the number of votes each candidate recieved. 
@@ -82,43 +82,43 @@ The purpose of this election audit is to report the total number of votes casts,
     - Code: 
 
 
-    winning_candidate = ""
+        winning_candidate = ""
     
-    winning_count = 0
+        winning_count = 0
 
-    winning_percentage = 0
+        winning_percentage = 0
 
     - Next, I needed to create an if statement inside the for loop to determine if the vote count was greater than the winning count, and the percentage is greater than the winning percentage. 
     - Code: 
 
 
-    if (votes > winning_count) and (vote_percentage > winning_percentage):
+        if (votes > winning_count) and (vote_percentage > winning_percentage):
     
-         winning_count = votes
+             winning_count = votes
     
-         winning_percentage = vote_percentage
+            winning_percentage = vote_percentage
     
-         winning_candidate = candidate_name
+            winning_candidate = candidate_name
     
-    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
     
     - Finally, I needed to print out the winning candidate summary.
     - Code: 
 
 
-    winning_candidate_summary = (
+        winning_candidate_summary = (
      
-        f"-------------------------\n"
+            f"-------------------------\n"
      
-        f"Winner: {winning_candidate}\n"
+            f"Winner: {winning_candidate}\n"
      
-        f"Winning Vote Count: {winning_count:,}\n"
+            f"Winning Vote Count: {winning_count:,}\n"
      
-        f"Winning Percentage: {winning_percentage:.1f}%\n"
+            f"Winning Percentage: {winning_percentage:.1f}%\n"
      
-        f"-------------------------\n")
+            f"-------------------------\n")
     
-    print(winning_candidate_summary)
+        print(winning_candidate_summary)
 
 ### Analysis of Outcomes Based on County
 In addition election audit to report the total number of votes casts, total number of votes per candidate, percentage of votes per candidate, and the winner of the election based on popular vote, the election commission requested additional data. The election commission wanted me to also audit the voter turnout for each county, the percentage of votes from each county, and determine which county had the highest turout. To complete this audit for the election commission, I completed the following flow chart.
@@ -126,25 +126,25 @@ In addition election audit to report the total number of votes casts, total numb
     - Code: 
 
 
-    county_list = []
+        county_list = []
 
-    county_votes = {}
+        county_votes = {}
 
 2. Track the largest county and county voter turnout. 
     - Code: 
 
 
-    largest_county = ""
+        largest_county = ""
     
-    county_turnout = 0
+        county_turnout = 0
     
-    turnout_percent = 0
+        turnout_percent = 0
 
 3. Extract the county name from each row.
     - To complete this task, I needed to include the below code within the for loop I created previously for the candidate. 
     - Code: 
 
-     county_name = row [1]
+        county_name = row [1]
 
 4. Check to see if the county name is in the county list. 
     - Code: 
