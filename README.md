@@ -22,6 +22,7 @@ The purpose of this election audit is to report the total number of votes casts,
     - Code: 
 
         with open(file_to_load) as election_data:
+        
             reader = csv.reader(election_data)
     
             header = next(reader)
