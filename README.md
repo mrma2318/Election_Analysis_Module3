@@ -18,11 +18,11 @@ The purpose of this election audit is to report the total number of votes casts,
         total_votes = 0
 
 2. Get a complete list of candidates who received votes. 
-    - Once I opened the file I needed to load as election data, I needed to create a for loop that would add to the total vote count and get the candidates name from each row. However, I wanted to make sure that it was only collecting the candidates names once, and then adding to the total count when it appeared again. Therefore, I had to create and if statement inside my for loop. This allowed me to add the candidates name to the list if it wasn't there already, and then start tracking that candidate's vote count.
+    - Once I opened the necessary file for the election data, I needed to create a for loop that would add to the total vote count and get the candidates name from each row. However, I wanted to make sure that it was only collecting the candidates names once, and then adding to the total count when it appeared again. Therefore, I had to create and if statement inside my for loop. This allowed me to add the candidates name to the list if it wasn't there already, and then start tracking that candidate's vote count.
     - Code: 
 
         with open(file_to_load) as election_data:
-        
+
             reader = csv.reader(election_data)
     
             header = next(reader)
@@ -87,7 +87,7 @@ The purpose of this election audit is to report the total number of votes casts,
 
         winning_percentage = 0
 
-    - Next, I needed to create an if statement inside the for loop to determine if the vote count was greater than the winning count, and the percentage is greater than the winning percentage. 
+    - Next, I needed to create an if statement inside the for loop to determine if the vote count is greater than the winning count, and the percentage is greater than the winning percentage. 
     - Code: 
 
 
@@ -120,7 +120,7 @@ The purpose of this election audit is to report the total number of votes casts,
         print(winning_candidate_summary)
 
 ### Analysis of Outcomes Based on County
-In addition election audit to report the total number of votes casts, total number of votes per candidate, percentage of votes per candidate, and the winner of the election based on popular vote, the election commission requested additional data. The election commission wanted me to also audit the voter turnout for each county, the percentage of votes from each county, and determine which county had the highest turout. To complete this audit for the election commission, I completed the following flow chart.
+In addition to the election audit to report the total number of votes casts, total number of votes per candidate, percentage of votes per candidate, and the winner of the election based on popular vote, the election commission requested additional data anaylsis. The election commission wanted me to also audit the voter turnout for each county, the percentage of votes from each county, and determine which county had the highest turout. To complete this audit for the election commission, I completed the following flow chart.
 1. Create a county list and county votes dictionary. 
     - Code: 
 
@@ -199,7 +199,7 @@ In addition election audit to report the total number of votes casts, total numb
      print(winning_county_summary)
 
 
-Please referr to [PyPoll_Challenge.py](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/PyPoll_Challenge.py) for completed and combined code analysis of the election data for both the candidate and county. 
+Please referr to [PyPoll_Challenge.py](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/PyPoll_Challenge.py) for completed and combined code analysis of the election data for the candidate and county. 
 
 Once the script had been completed and the analysis was successful, I printed the election results to it's own text file, [election_analysis.txt](https://github.com/mrma2318/Election_Analysis_Module3/blob/aaca41ab6e4353fe2bcc0318a112793201f6d6de/analysis/election_analysis.txt). 
 
@@ -224,6 +224,13 @@ The analysis of the election show that:
     - Diana DeGette, who recieved 73.8% of the vote and 272,892 number of votes. 
   
 ## Overview
-To conclude, there were three candidate's in this specific precinct, Charles Casper Stockham, Diana DeGette, and Raymond Anthony Doane. In total, there were 369,711 total votes in this precinct, with Diana recieving 272,892 of those votes, or 73.8% of the total votes.
+
+To conclude, there were three candidate's in this specific precinct, Charles Casper Stockham, Diana DeGette, and Raymond Anthony Doane. In total, there were 369,711 total votes, with Diana recieving 272,892 of those votes, 73.8% of the total votes.
+
+In addition, there were three counties, Jefferson, Denver, and Arapahoe. From the 339,711 total votes, Denver received 82.8% of the votes, 306,055 total votes, making Denver the county with the largest turnout. 
   
-## Challenge Summary
+## Summary
+
+The script for the election audit can be used for any election data, by modifying the script. One way the script could be modified for other elections is refactoring the code so that there is one if statement inside the for loop to handle both the candidate and the county conditions. Combining the if statemnts in both for loops can generage a faster run time it takes the code to be conducted. 
+
+Another modification is to have the script read multiple csv files dynamically. Then I could create nested for loops within the script, so that when the script is ran, it loops through all the different election csv files. By modifying the script to read multiple csv files, we can compute results for all the state election csv files instead of having 50 copies of the same script for each state. 
